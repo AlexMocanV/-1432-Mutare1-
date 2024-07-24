@@ -1,0 +1,24 @@
+void aranjare(int a[], int n)
+{
+    std::stack<int>pare;
+    std::stack<int>impare;
+    for(int i=n-1;i>=0;i--)
+    {
+        if(a[i]%2)
+        impare.push(a[i]);
+        else pare.push(a[i]);
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(!impare.empty())
+        {
+            a[i]=impare.top();
+            impare.pop();
+        }
+        else
+        {
+            a[i]=pare.top();
+            pare.pop();
+        }
+    }
+}
